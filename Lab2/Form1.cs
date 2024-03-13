@@ -45,11 +45,10 @@ namespace Lab2
                     {
                         //Console.WriteLine(line);
                         listBox1.Items.Add(line);
-                        if (line.Contains(","))
+                        if (line.Contains(",") && !(line.Contains("date")))
                         {
-
                             int countPrzecinki = line.Count(f => f == ',');
-                            if (countPrzecinki == 5)
+                            if (countPrzecinki == 5) 
                             {
                                 OdczytajElement(ref line);
                                 counter++;
