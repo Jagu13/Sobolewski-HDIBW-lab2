@@ -33,7 +33,7 @@ namespace Lab2
 
         void OdczytajPlik()
         {
-            string fileName = @"E:\DominikBorkowski\HurtownieBazDanych\dane\db\ZALog2003.10.01.txt";
+            string fileName = @"C:\Users\Jagoda\Desktop\Jagodka\Sobolewski\db\ZALog2003.10.01.txt";
             try
             {
                 // Create a StreamReader
@@ -47,10 +47,12 @@ namespace Lab2
                         listBox1.Items.Add(line);
                         if (line.Contains(","))
                         {
+
                             int countPrzecinki = line.Count(f => f == ',');
                             if (countPrzecinki == 5)
                             {
-
+                                OdczytajElement(ref line);
+                                counter++;
                             }
                         }
                     }
@@ -66,7 +68,7 @@ namespace Lab2
 
         }
 
-        string OdczytajElement(ref string line)
+        void OdczytajElement(ref string line)
         {
             string[] splitData = line.Split(',');
             String typ = splitData[0];
